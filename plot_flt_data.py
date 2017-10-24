@@ -12,7 +12,7 @@ import seaborn as sns
 df=pd.read_csv(os.path.dirname(__file__)+'/flights_fet_sel.csv')
 result=df
 
-#Get 10 rows randomely
+#Get 10 rows randomly
 df=df.sample(10)
 #create airport dict from actual and scheduled airports
 airports = df.set_index('ACTL_DPRT_ARPT_CD')['SCH_DPRT_ARPT_CD'].to_dict()
