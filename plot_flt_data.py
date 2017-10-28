@@ -6,13 +6,13 @@ from matplotlib.gridspec import GridSpec
 import matplotlib as mpl
 import seaborn as sns
 
-
-
-
 df=pd.read_csv(os.path.dirname(__file__)+'/flights_fet_sel.csv')
 result=df
 
-#Get 10 rows randomly
+#Drop rows that has nan in any of the column values
+df= df.dropna() 
+
+#Get 10 rows randomely
 df=df.sample(10)
 #create airport dict from actual and scheduled airports
 airports = df.set_index('ACTL_DPRT_ARPT_CD')['SCH_DPRT_ARPT_CD'].to_dict()
@@ -117,3 +117,5 @@ plt.ylabel('Number of airports visited', fontsize=14, weight = 'bold', labelpad=
 plt.setp(ax.get_xticklabels(), fontsize=11, ha = 'right', rotation = 80)
 ax.legend().set_visible(False)
 plt.show()    
+
+
