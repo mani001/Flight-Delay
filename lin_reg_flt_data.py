@@ -13,16 +13,12 @@ df=pd.read_csv(os.path.dirname(__file__)+'/flights_fet_sel.csv')
 
 #Drop rows that has nan in any of the column values
 df= df.dropna() 
-
 #Collect all the str values 
-df_str = df.filter(["ACTL_ARR_ARPT_CD","ACTL_DPRT_ARPT_CD","DOM_INTL_TYP_CD","FLT_LEG_ADD_RSN_CD","SCH_ARR_ARPT_CD","SCH_DPRT_ARPT_CD","ADD_IND"], axis=1)
-
+df_str = df.filter(["ACTL_ARR_ARPT_CD","ACTL_DPRT_ARPT_CD","DOM_INTL_TYP_CD","FLT_LEG_ADD_RSN_CD","SCH_ARR_ARPT_CD","SCH_DPRT_ARPT_CD"], axis=1)
 #Create categorical values into dummy variables
 df_dummy  = pd.get_dummies(df_str)
-
 #Drop the columns for which dummy columns are created
-df = df.drop(["ACTL_ARR_ARPT_CD","ACTL_DPRT_ARPT_CD","DOM_INTL_TYP_CD","FLT_LEG_ADD_RSN_CD","SCH_ARR_ARPT_CD","SCH_DPRT_ARPT_CD","ADD_IND"], axis=1)
-
+df = df.drop(["ACTL_ARR_ARPT_CD","ACTL_DPRT_ARPT_CD","DOM_INTL_TYP_CD","FLT_LEG_ADD_RSN_CD","SCH_ARR_ARPT_CD","SCH_DPRT_ARPT_CD"], axis=1)
 #Join dummy columns with the original df
 df=pd.concat([df,df_dummy], axis=1)
 
@@ -47,7 +43,7 @@ df_test_X = df_test_X.drop('ARR_TIME_DELAY', 1)
 df_test_X=np.array(df_test_X)
 
 # Create Ridge regression object  
-ridge = Ridge(alpha=20)
+ridge = Ridge(alpha=4000)
 ridge.fit(df_train_X, df_train_Y)
 
 # Make predictions using the testing set
