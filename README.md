@@ -1,3 +1,5 @@
+# This application uses Flight departure and arrival data from US government and uses supervised ML model to predict if a new flight will be delayed or not.
+
 dep_airport_delay_plot.png – Graph shows randomly selected ten rows from the data frame., Departure delay vs Scheduled Departure Airport
 
 flights_fet_sel.csv -This file contains flight arrival and departure data for the airports obtained from https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp. Many data that are not relevant for predicting flight delay is removed. 
