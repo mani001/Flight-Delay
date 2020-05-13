@@ -1,4 +1,4 @@
-# This application uses Flight departure and arrival data from US government and uses supervised ML model to predict if a new flight will be delayed or not.
+### This application uses Flight departure and arrival data from US government and uses supervised ML model to predict if a new flight will be delayed or not.
 
 dep_airport_delay_plot.png – Graph shows randomly selected ten rows from the data frame., Departure delay vs Scheduled Departure Airport
 
